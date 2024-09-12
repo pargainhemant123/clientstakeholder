@@ -3,21 +3,21 @@
     "username": "root",
     "password": "password",
     "database": "clientstakeholder",
-    "host": "127.0.0.1",
+    "host": "db", 
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "password",
+    "database": "test_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "password": "password",
+    "database": "clientstakeholder",
+    "host": "db", 
     "dialect": "mysql"
   }
 }

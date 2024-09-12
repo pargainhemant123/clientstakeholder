@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:5.7
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: clientstakeholder
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+
+  node-app:
+    build: .
+    container_name: node-app
+    depends_on:
+      - mysql-db
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: mysql-db
+      DB_USERNAME: root
+      DB_PASSWORD: password
+      DB_DATABASE: clientstakeholder
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
