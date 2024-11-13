@@ -1,7 +1,9 @@
 const express = require('express')
 const morgan = require('morgan');
+const cors = require('cors');
 const logger = require('./middlewares/logger'); // Import the Winston logger
 const app = express()
+app.use(cors());
 app.use(express.json());
 const { sequelize } = require('./models'); // Import the Sequelize instance
 const authRoutes = require('./routes/authRoutes'); // Import authentication routes
@@ -21,7 +23,7 @@ app.use('/api/protected', protectedRoutes);
 
 const server_credentials = {
     IP:'localhost',   
-    port:3000
+    port:4000
 }
 app.get('/test',(req,res)=>{
     res.status(500).send({status:200 , message :'Welcome to client Stackholder application'})
